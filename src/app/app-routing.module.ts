@@ -11,7 +11,7 @@ import { AdminComponent } from './modules/admin/admin.component';
 const routes: Routes = [
   {
     path:'', component: DefaultComponent, children: [
-      {path:'', component: HomeComponent},
+      {path:'', component: HomeComponent, pathMatch: 'full'},
       {path:'products', component: ProductComponent},
     ]
   },
