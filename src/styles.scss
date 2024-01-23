@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'variables.scss';
 body,
 html{
     margin: 0;
@@ -6,3 +7,8 @@ html{
     height: 100%;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+.content{
+    padding: 20px;
+    background: $lightgray;
+}
+  
