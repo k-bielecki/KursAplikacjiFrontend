@@ -8,6 +8,8 @@ import { MaterialModule } from '../../shared/material.module';
 import { AdminProductComponent } from '../../modules/admin/admin-product/admin-product.component';
 import { AdminProductUpdateComponent } from '../../modules/admin/admin-product-update/admin-product-update.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AdminProductAddComponent } from '../../modules/admin/admin-product-add/admin-product-add.component';
+import { AdminProductFormComponent } from '../../modules/admin/admin-product-form/admin-product-form.component';
 
 
 
@@ -16,7 +18,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     FullpageadminComponent,
     AdminComponent,
     AdminProductComponent,
-    AdminProductUpdateComponent
+    AdminProductUpdateComponent,
+    AdminProductAddComponent,
+    AdminProductFormComponent
   ],
   imports: [
     CommonModule,
