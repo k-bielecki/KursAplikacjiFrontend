@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AdminProductUpdateService } from './admin-product-update.service';
 import { AdminProductUpdate } from './model/adminProductUpdate';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AdminMessageService } from '../admin-message.service';
 
 @Component({
   selector: 'app-admin-product-update',
@@ -19,17 +20,18 @@ export class AdminProductUpdateComponent implements OnInit {
     private router: ActivatedRoute,
     private AdminProductUpdateService: AdminProductUpdateService,    
     private formBuilder: FormBuilder,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private adminMessageService: AdminMessageService
     ) {}
   
   ngOnInit(): void {   
 
     this.productForm = this.formBuilder.group({
-      name: [''],
-      description: [''],
-      category: [''],
-      price: [''],
-      currency: ['PLN'],
+      name: ['', [Validators.required, Validators.minLength(4)]],
+      description: ['', [Validators.required, Validators.minLength(4)]],
+      category: ['', [Validators.required, Validators.minLength(4)]],
+      price: ['', [Validators.required, Validators.min(0)]],
+      currency: ['PLN', Validators.required]
     })
 
     this.getProduct();
@@ -49,9 +51,13 @@ export class AdminProductUpdateComponent implements OnInit {
       category: this.productForm.get('category')?.value,
       price: this.productForm.get('price')?.value,
       currency: this.productForm.get('currency')?.value
-    } as AdminProductUpdate).subscribe(product => {
+    } as AdminProductUpdate).subscribe({
+      next: product => {
       this.mapFormValues(product);
       this.snackBar.open("Produkt został zapisany", '', {duration: 3000});
+    },
+      error: err => this.adminMessageService.addSpringErrors(err.error)
+    
     });    
   }
   
