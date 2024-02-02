@@ -34,7 +34,7 @@ import { FormGroup } from "@angular/forms";
 
     <mat-form-field appearance="fill">
         <mat-label>Opis</mat-label>
-        <textarea matInput rows="20" placeholder="Podaj opis produktu" formControlName="description"></textarea>
+        <textarea matInput rows="5" placeholder="Podaj opis produktu" formControlName="description"></textarea>
         <div *ngIf="description?.invalid && (description?.dirty || description?.touched)" class="errorMessages">
                 <div *ngIf="description?.errors?.['required']">
                     Opis jest wymagany
@@ -43,6 +43,11 @@ import { FormGroup } from "@angular/forms";
                     Opis musi mieć przynajmniej 4 znaki
                 </div>
             </div>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Pełny opis</mat-label>
+        <textarea matInput rows="5" placeholder="Podaj pełny opis produktu" formControlName="fullDescription"></textarea>        
     </mat-form-field>
 
     <mat-form-field appearance="fill">
@@ -107,6 +112,10 @@ export class AdminProductFormComponent implements OnInit {
 
     get description(){
         return this.parentForm.get("description");
+    }
+
+    get fullDescription(){
+        return this.parentForm.get("fullDescription");
     }
     
     get category(){
