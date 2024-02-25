@@ -1,0 +1,33 @@
+@import '../../../variables.scss';
+:host{
+    display: flex;
+    flex-direction: column;
+}
+.productImage{
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.productPrice{
+    font-size: 30px;
+    font-weight: 500px;
+    margin-top: 20px;
+    color: $warn;
+}
+.productContent{
+    margin-top: 10px;
+    font-size: 18px;
+}
+mat-card{
+    padding: 15px;
+    margin-bottom: 25px;
+
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: #777;
+}
