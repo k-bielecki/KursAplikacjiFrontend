@@ -9,6 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { CategoryComponent } from './modules/category/category.component';
 import { AdminReviewComponent } from './modules/admin/admin-review/admin-review.component';
+import { CartComponent } from './modules/cart/cart.component';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import { AdminReviewComponent } from './modules/admin/admin-review/admin-review.
     HttpClientModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    CookieService
   ],
   bootstrap: [AppComponent]
 })
