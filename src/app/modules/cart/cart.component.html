@@ -36,6 +36,9 @@
     <div> 
         <button mat-flat-button color="warn" (click)="back()">Powrót do zakupów</button> 
     </div>
+    <div fxLayoutAllign="end start">
+        <button type="button" class="orderButton" mat-flat-button color="accent" routerLink="/order">Zamawiam</button>
+    </div>
 </div>
 </form>
 <div *ngIf="!summary?.items?.length">
